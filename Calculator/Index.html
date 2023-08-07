@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="Calculator">
+        <input type="text" id="display" readonly>
+        <button class="operator" onclick="clearDisplay()">C</button>
+        <button class="operator" onclick="removeLast()">CE</button>
+        <button onclick="AppendDisplay('.')">.</button>
+        <button class="operator" onclick="AppendDisplay('/')">/</button>
+
+        <button onclick="AppendDisplay('7')">7</button>
+        <button onclick="AppendDisplay('8')">8</button>
+        <button onclick="AppendDisplay('9')">9</button>
+        <button class="operator" onclick="AppendDisplay('*')">*</button>
+
+        <button onclick="AppendDisplay('4')">4</button>
+        <button onclick="AppendDisplay('5')">5</button>
+        <button onclick="AppendDisplay('6')">6</button>
+        <button class="operator" onclick="AppendDisplay('-')">-</button>
+
+        <button onclick="AppendDisplay('1')">1</button>
+        <button onclick="AppendDisplay('2')">2</button>
+        <button onclick="AppendDisplay('3')">3</button>
+        <button class="operator" onclick="AppendDisplay('+')">+</button>
+
+        <button onclick="AppendDisplay('0')">0</button>
+        
+        <button class="operator" id="cal" onclick="calculate()">=</button>
+
+
+
+
+
+
+ 
+
+    </div>
+<script>
+    let current="";
+
+    function AppendDisplay(value){
+        current+=value;
+        document.getElementById("display").value=current;
+    }
+
+    function calculate(){
+         try{
+            const result=eval(current);
+            document.getElementById("display").value=result;
+
+
+        }
+         catch(error){
+            document.getElementById("display").value=error;
+            current="";
+
+        }
+    }
+        function clearDisplay(){
+            current="";
+            document.getElementById("display").value="";
+        }
+        function removeLast(){
+            current=current.slice(0,-1);
+            document.getElementById("display").value=current;
+        }
+    
+</script>
+</body>
+</html>
